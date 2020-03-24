@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: graph
+# key: graph
+# --
+#+begin_src dot :file balanced.png :cmdline -Kdot -Tpng
+digraph tree {
+pin=true;
+A -> B -> C
+A -> C
+}
+#+end_src
