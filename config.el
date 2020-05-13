@@ -29,3 +29,21 @@
  '(haskell-indentation-where-pre-offset 2)
  '(haskell-indentation-where-post-offset 2)
  )
+
+(use-package! org-roam
+  :commands (org-roam-insert org-roam-find-file org-roam-switch-to-buffer org-roam)
+  :hook
+  (after-init . org-roam-mode)
+  :custom-face
+  (org-roam-link ((t (:inherit org-link :foreground "#005200"))))
+  :init
+  (map! :leader
+        :prefix "n"
+        :desc "org-roam" "l" #'org-roam
+        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
+        :desc "org-roam-find-file" "f" #'org-roam-find-file
+        :desc "org-roam-show-graph" "g" #'org-roam-show-graph
+        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-capture" "c" #'org-roam-capture)
+)

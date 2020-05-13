@@ -3,17 +3,6 @@
 (package! org-roam :recipe
   (:host github :repo "jethrokuan/org-roam" :branch "develop"))
 
-(use-package! org-roam
-      :hook
-      (after-init . org-roam-mode)
-      :custom (org-roam-directory "/home/noel/org-notes/")
-      :bind (:map org-roam-mode-map
-              (("C-c n l" . org-roam)
-               ("C-c n f" . org-roam-find-file)
-               ("C-c n g" . org-roam-show-graph))
-              :map org-mode-map
-              (("C-c n i" . org-roam-insert))))
-
 ;; Used to filter and browse files in org
 (package! deft)
 
