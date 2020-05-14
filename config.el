@@ -2,9 +2,13 @@
 
 ;; Place your private configuration here
 
+;; disable UI clutters
+(setq tool-bar-mode nil)
+(setq scroll-bar-mode nil)
+
 ;; Uses zsh instead of bash
-(setq vterm-shell "/run/current-system/sw/bin/zsh")
-(setq multi-term-program "/run/current-system/sw/bin/zsh")
+(setq vterm-shell "/bin/zsh")
+(setq multi-term-program "/bin/zsh")
 
 (load-theme 'doom-one t)
 ;; Show inline messages in org
@@ -49,4 +53,6 @@
         :desc "org-roam-show-graph" "g" #'org-roam-show-graph
         :desc "org-roam-insert" "i" #'org-roam-insert
         :desc "org-roam-capture" "c" #'org-roam-capture)
+  (setq org-roam-directory "/Users/kwannoel/org-notes/") ;; update to use dropbox
 )
+
