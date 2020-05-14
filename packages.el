@@ -15,3 +15,5 @@
   (deft-use-filter-string-for-filename t)
   (deft-default-extension "org")
   (deft-directory "/home/noel/org-notes/"))
+
+(package! org-noter)

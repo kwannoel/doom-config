@@ -28,6 +28,9 @@
  '(haskell-indentation-left-offset 4)
  '(haskell-indentation-where-pre-offset 2)
  '(haskell-indentation-where-post-offset 2)
+
+ ;; Customization for stylish-haskell
+ '(haskell-stylish-on-save t)
  )
 
 (use-package! org-roam
