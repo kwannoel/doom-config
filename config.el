@@ -3,8 +3,10 @@
 ;; Place your private configuration here
 
 ;; Uses zsh instead of bash
-(setq vterm-shell "/run/current-system/sw/bin/zsh")
-(setq multi-term-program "/run/current-system/sw/bin/zsh")
+;; use system-type to check
+;; use sh-shell to confi
+(setq vterm-shell (getenv "SHELL"))
+(setq multi-term-program (getenv "SHELL"))
 
 (load-theme 'doom-one t)
 ;; Show inline messages in org
@@ -33,20 +35,41 @@
  '(haskell-stylish-on-save t)
  )
 
+
 (use-package! org-roam
   :commands (org-roam-insert org-roam-find-file org-roam-switch-to-buffer org-roam)
   :hook
-  (after-init . org-roam-mode)
+  (after-init-hook . org-roam-mode)
   :custom-face
   (org-roam-link ((t (:inherit org-link :foreground "#005200"))))
   :init
+  ;; insert output after cursor rather than before
+  ;; evil-mode specific workaround
+  (defun org-roam-insert-after ()
+    (interactive) (save-excursion (insert "  ")) (right-char 2) (command-execute #'org-roam-insert))
   (map! :leader
         :prefix "n"
-        :desc "org-roam" "l" #'org-roam
-        :desc "org-roam-insert" "i" #'org-roam-insert
+        :desc "org-roam-mode" "l" #'org-roam
+        :desc "org-roam-insert-after" "i" #'org-roam-insert-after
         :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
         :desc "org-roam-find-file" "f" #'org-roam-find-file
         :desc "org-roam-show-graph" "g" #'org-roam-show-graph
-        :desc "org-roam-insert" "i" #'org-roam-insert
         :desc "org-roam-capture" "c" #'org-roam-capture)
+  (setq org-roam-directory    (concat (getenv "HOME") "/org-notes/" )
+        org-roam-db-location  (concat (getenv "HOME") "/org-roam-db/org-roam.db" ))
+)
+
+;; Enable goto-line in evil mode
+(map! :n "g l" #'goto-line)
+
+;;; Deft configuration
+(use-package! deft
+  :after org org-roam
+  :bind
+  ("C-c n d" . deft)
+  :custom
+  (deft-recursive t)
+  (deft-use-filter-string-for-filename t)
+  (deft-default-extension "org")
+  (deft-directory 'org-roam-directory)
 )
