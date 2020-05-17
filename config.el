@@ -38,8 +38,6 @@
 
 (use-package! org-roam
   :commands (org-roam-insert org-roam-find-file org-roam-switch-to-buffer org-roam)
-  :hook
-  (after-init-hook . org-roam-mode)
   :custom-face
   (org-roam-link ((t (:inherit org-link :foreground "#005200"))))
   :init
@@ -55,7 +53,7 @@
         :desc "org-roam-find-file" "f" #'org-roam-find-file
         :desc "org-roam-show-graph" "g" #'org-roam-show-graph
         :desc "org-roam-capture" "c" #'org-roam-capture)
-  (setq org-roam-directory    (concat (getenv "HOME") "/org-notes/" )
+  (setq org-roam-directory    (concat (getenv "HOME") "/Sync/org-notes/" )
         org-roam-db-location  (concat (getenv "HOME") "/org-roam-db/org-roam.db" ))
 )
 
@@ -71,5 +69,5 @@
   (deft-recursive t)
   (deft-use-filter-string-for-filename t)
   (deft-default-extension "org")
-  (deft-directory 'org-roam-directory)
+  (deft-directory org-roam-directory) ;;; Filter through index of org-roam
 )
