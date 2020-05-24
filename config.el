@@ -71,3 +71,6 @@
   (deft-default-extension "org")
   (deft-directory org-roam-directory) ;;; Filter through index of org-roam
 )
+
+;;; Hoogle lookup
+(map! :n :v "SPC h h" #'hoogle)
