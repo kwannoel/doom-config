@@ -35,42 +35,8 @@
  '(haskell-stylish-on-save t)
  )
 
-
-(use-package! org-roam
-  :commands (org-roam-insert org-roam-find-file org-roam-switch-to-buffer org-roam)
-  :custom-face
-  (org-roam-link ((t (:inherit org-link :foreground "#005200"))))
-  :init
-  ;; insert output after cursor rather than before
-  ;; evil-mode specific workaround
-  (defun org-roam-insert-after ()
-    (interactive) (save-excursion (insert "  ")) (right-char 2) (command-execute #'org-roam-insert))
-  (map! :leader
-        :prefix "n"
-        :desc "org-roam-mode" "l" #'org-roam
-        :desc "org-roam-insert-after" "i" #'org-roam-insert-after
-        :desc "org-roam-switch-to-buffer" "b" #'org-roam-switch-to-buffer
-        :desc "org-roam-find-file" "f" #'org-roam-find-file
-        :desc "org-roam-show-graph" "g" #'org-roam-show-graph
-        :desc "org-roam-capture" "c" #'org-roam-capture)
-  (setq org-roam-directory    (concat (getenv "HOME") "/Sync/org-notes/" )
-        org-roam-db-location  (concat (getenv "HOME") "/org-roam-db/org-roam.db" ))
-)
-
 ;; Enable goto-line in evil mode
 (map! :n "g l" #'goto-line)
-
-;;; Deft configuration
-(use-package! deft
-  :after org org-roam
-  :bind
-  ("C-c n d" . deft)
-  :custom
-  (deft-recursive t)
-  (deft-use-filter-string-for-filename t)
-  (deft-default-extension "org")
-  (deft-directory org-roam-directory) ;;; Filter through index of org-roam
-)
 
 ;;; Hoogle lookup
 (map! :nv "SPC h h" #'hoogle)
