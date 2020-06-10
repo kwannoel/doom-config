@@ -86,6 +86,7 @@
        ;;macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
+       neuron              ; zettelkasten https://github.com/srid/neuron-mode#appendix-doom-emacs-configuration
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
@@ -135,7 +136,8 @@
         +pandoc          ; export-with-pandoc support
         ;;+pomodoro        ; be fruitful with the tomato technique
         +present           ; using org-mode for presentations
-        +roam)
+        ;;+roam            ; dropping this in favour of neuron
+        )
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
