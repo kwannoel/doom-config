@@ -1,0 +1,6 @@
+# key: hk
+# name: haskell-kattis
+# --
+-- stack --system-ghc runghc
+-- Problem set: https://open.kattis.com/problems/$1/submit
+-- Status: In progress

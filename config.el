@@ -5,7 +5,7 @@
 ;; Uses zsh instead of bash
 ;; use system-type to check
 ;; use sh-shell to confi
-(setq vterm-shell (getenv "SHELL"))
+;; (setq vterm-shell (getenv "SHELL"))
 (setq multi-term-program (getenv "SHELL"))
 
 (load-theme 'doom-one t)
@@ -40,3 +40,17 @@
 
 ;;; Hoogle lookup
 (map! :nv "SPC h h" #'hoogle)
+
+;;; shell pop
+(use-package! shell-pop
+  :init (map! :leader
+              :desc "Uses shell-pop" "t t" 'shell-pop)
+  :config
+  (setq shell-pop-shell-type (quote ("ansi-term" "*ansi-term*" (lambda nil (ansi-term shell-pop-term-shell))))
+        shell-pop-term-shell (getenv "SHELL")
+        shell-pop-window-size 30
+        shell-pop-full-span nil
+        shell-pop-window-position "bottom"
+        ;; shell-pop-autocd-to-working-dir t
+        ;; shell-pop-restore-window-configuration t
+        shell-pop-cleanup-buffer-at-process-exit t))
