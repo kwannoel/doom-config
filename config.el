@@ -58,3 +58,7 @@
 ;; Load agda, ensure agda-mode is installed via agda first
 (load-file (let ((coding-system-for-read 'utf-8))
                 (shell-command-to-string "agda-mode locate")))
+
+;; Enable neuron shortcuts
+(map! :map neuron-mode-map
+      :nv "SPC z l" #'neuron-create-and-insert-zettel-link)

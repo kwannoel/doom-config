@@ -6,5 +6,6 @@
 ;; pop-up terminal
 (package! shell-pop)
 
-;; snippet collection
-(package! yasnippet-snippets)
+;; Commented out to use doom's default snippets
+;; ;; snippet collection
+;; (package! yasnippet-snippets)
