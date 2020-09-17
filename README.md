@@ -21,3 +21,7 @@ https://gist.github.com/felko/cdb3fc19b3a60db27eb3c5bd319fc479
 (include those files in `.doom.d/modules/tools/neuron`)
 
 This creates a private module that can then be enabled by inserting neuron under the :tools section of your doom! block (inside your init.el).
+
+# Setup emacs-libvterm on OSX
+
+You'll have to `brew install cmake` to build `vterm`.
