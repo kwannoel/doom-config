@@ -55,9 +55,9 @@
         ;; shell-pop-restore-window-configuration t
         shell-pop-cleanup-buffer-at-process-exit t))
 
-;; Load agda, ensure agda-mode is installed via agda first
-(load-file (let ((coding-system-for-read 'utf-8))
-                (shell-command-to-string "agda-mode locate")))
+;; ;; Load agda, ensure agda-mode is installed via agda first
+;; (load-file (let ((coding-system-for-read 'utf-8))
+;;                 (shell-command-to-string "agda-mode locate")))
 
 ;; Enable neuron shortcuts
 (map! :map neuron-mode-map
