@@ -29,7 +29,8 @@
 
 (use-package! neuron-mode
   ; Enable link autocompletion globally
-  :hook (neuron-mode . company-neuron-setup)
+  ; ensure neuron enabled globally.
+  ; :hook (neuron-mode . company-neuron-setup)
   :config
   (map! :leader
         (:prefix ("z" . "zettel")
